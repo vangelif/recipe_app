@@ -80,7 +80,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/vangelif/blog_app.git
+  git clone git@github.com:vangelif/recipe_app.git
 ```
 
 ### Install
@@ -154,7 +154,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please give it a star on [GitHub](https://github.com/vangelif/blog_app.git).
+If you like this project please give it a star on [GitHub](git@github.com:vangelif/recipe_app.git).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
