@@ -8,7 +8,6 @@
     - [🛠 Built With](#built-with)
         - [Tech Stack](#tech-stack)
         - [Key Features](#key-features)
-    - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
     - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -26,9 +25,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog App
+# 📖 Recipe app
 
-**Blog App** is a website that empowers users to post, like, comment and interact with others.
+**Recipe app** This Recipe App is a ruby on rails application that allows users to create and manage recipes.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -52,9 +51,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **Creating their posts**
-- [ ] **Liking their posts and others**
-- [ ] **Commenting and deleting their comments**
+- [ ] **Show Foods List**
+- [ ] **Add new Food by the User**
+- [ ] **Show Recipes list**
+- [ ] **Show Public Recipes list**
+- [ ] **Show Shopping list**
+- [ ] **Add Recipes**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,7 +154,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project consider adding a ⭐️
+If you like this project please give it a star on [GitHub](https://github.com/vangelif/blog_app.git).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
