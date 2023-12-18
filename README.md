@@ -1,52 +1,60 @@
+<a name="readme-top"></a>
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App Project ](#-blog-app-project-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
+- [📖 About the Project](#about-project)
+    - [🛠 Built With](#built-with)
+        - [Tech Stack](#tech-stack)
+        - [Key Features](#key-features)
+    - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
     - [Setup](#setup)
+    - [Prerequisites](#prerequisites)
     - [Install](#install)
     - [Usage](#usage)
-  - [👥 Author ](#-author-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Recipe app <a name="about-project"></a>
+# 📖 Blog App
 
-**Recipe app** This Recipe App is a ruby on rails application that allows users to create and manage recipes.
+**Blog App** is a website that empowers users to post, like, comment and interact with others.
 
 ## 🛠 Built With <a name="built-with"></a>
 
-- Ruby on Rails
-- Vs Code
-- Postgresql
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Tech Stack <a name="tech-stack"></a>
 
-- **Ruby**
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- Show Foods List
-- Add new Food by the User
-- Show Recipes list
-- Show Public Recipes list
-- Show Shopping list
-- Add Recipes
+- [ ] **Creating their posts**
+- [ ] **Liking their posts and others**
+- [ ] **Commenting and deleting their comments**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,25 +68,51 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
+- `Ruby`
+- `Rails`
+- `VS Code`
+
 ### Setup
 
 Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/vangelif/recipe_app
+  git clone https://github.com/vangelif/blog_app.git
 ```
 
 ### Install
 
-- Ruby
-- Rspec
+Install this project with:
+
+```sh
+  cd my-project
+  bundle install
+```
 
 ### Usage
 
 To run the project, execute the following command:
 
-Start your interactive ruby shell `irb`:
+```sh
+  rails server
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  rspec spec
+```
+
+### Deployment
+
+You can deploy this project using your own deployment solution
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -94,14 +128,13 @@ Start your interactive ruby shell `irb`:
 - Twitter: [@twitterhandle](https://twitter.com/HenaryKhuraijam)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/henary-khuraijam-50487317a/)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Deployment**
+- [ ] **Add friendlier UI and enhance UX**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,7 +144,7 @@ Start your interactive ruby shell `irb`:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues).
+Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,7 +152,7 @@ Feel free to check the [issues page](../../issues).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please give it a star on [GitHub](https://github.com/vangelif/recipe_app).
+If you like this project consider adding a ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,7 +160,7 @@ If you like this project please give it a star on [GitHub](https://github.com/va
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for this opportunity to learn Ruby on Rails and Databases.
+I would like to thank [Microverse](https://bit.ly/MicroverseTN)..
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,6 +168,6 @@ I would like to thank Microverse for this opportunity to learn Ruby on Rails and
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
