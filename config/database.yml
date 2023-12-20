@@ -8,11 +8,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   # timeout: 5000
-  database: recipeapp_db
+  # database: recipeapp_db
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 12345
-  host: localhost
+  # username: postgres
+  # password: 12345
+  # host: localhost
 
 development:
   <<: *default
