@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index show new create destroy] do
     collection do
       get :public_recipes
+      get :generate_shopping_list
   end
 end
   get 'public_recipes', to: 'recipes#public_recipes'
