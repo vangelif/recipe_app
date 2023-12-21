@@ -1,1 +1,23 @@
+<%# here we display name of recipe and descirption, also a remove button %>
+
 <h1>Recipes</h1>
+<% @recipes.each do |r| %>
+
+  <div class="card text-decoration-none <%= r.present? ? 'mb-3' : 'mb-0' %>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <h2><%= r.name %></h2>
+                
+                <%= link_to 'Remove', recipe_path(r), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning btn-sm' %>
+            </div>
+             <div class="col-md-9">
+                <%= link_to recipe_path(r) do %>
+                <p><%= r.description %></p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+   </div>
+<% end %>

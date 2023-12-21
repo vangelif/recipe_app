@@ -1,0 +1,31 @@
+<%# here we display the public button, the prep and cook time, the description from the db %>
+<%# we also show two buttons -> add ingredient and generate shopping list  %>
+
+<%= form_with(model: @recipe, local: true, turbo: false) do |f| %>
+    <div class="form-group mb-2">
+        <%= f.label :name, "Recipe's Name" %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group mb-2">
+        <%= f.label :description, "Description" %>
+        <%= f.text_field :description, class: 'form-control' %>
+    </div>
+    <div class="form-group mb-2">
+        <%= f.label :preparation_time, "Preparation Time" %>
+        <%= f.number_field :preparation_time, class: 'form-control', placeholder: '..in minutes' %>
+    </div>
+    <div class="form-group mb-2">
+        <%= f.label :cooking_time, "Cooking Time" %>
+        <%= f.number_field :cooking_time, class: 'form-control', placeholder: '..in minutes' %>
+    </div>
+    <div class="form-group mb-2">
+        <%= f.label :public, "Public" %>
+        <div>
+        <%= f.check_box :public, class: 'form-check-input', placeholder: '..in minutes' %>
+        <%= f.label :public, class: "form-check-label" %>
+        </div>
+    </div>
+    <div class="form-group mb-2">
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+<% end %>
