@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[index new create edit update destroy]
 
   # root page, /recipes
   def index
     @recipes = current_user.recipes
   end
 
-  # ../recipes/1 
+  # ../recipes/1
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.author = current_user
     if @recipe.save
-      redirect_to recipes_path, notice: "Recipe was successfully created."
+      redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
       puts @recipe.errors.full_messages
       render :new
@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path, notice: "Recipe was successfully deleted."
+    redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
   end
 
   def public_recipes
