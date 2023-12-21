@@ -45,7 +45,6 @@ class RecipesController < ApplicationController
     @public_recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
-
   def generate_shopping_list
     redirect_to shopping_list_path
   end
