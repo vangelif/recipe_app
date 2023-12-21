@@ -1,0 +1,12 @@
+=> 
+[32m#<Recipe:0x0000022909aac060[0m
+ id: [36m[1mnil[0m,
+ name: [31m[1m"[0m[31mChicken Tika Masala[0m[31m[1m"[0m,
+ preparation_time: [34m[1m30[0m,
+ cooking_time: [34m[1m80[0m,
+ description:
+  [31m[1m"[0m[31mLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eu ante dignissim tempor non non erat. Aliquam ut mi vulputate, aliquet libero vel, pretium ipsum. Morbi in massa nec enim vehicula tempus at in risus. Nam a pulvinar lectus, non euismod magna. Proin suscipit mauris ut mauris pulvinar, quis rhoncus enim maximus. Nam vitae aliquet nisl. Proin tincidunt dictum sapien, eu ultrices ante suscipit id. Nullam at tellus et felis tincidunt accumsan. Maecenas convallis diam non pretium maximus. Pellentesque vitae libero quam. Nunc tincidunt neque quis magna convallis aliquam. Vestibulum hendrerit auctor ligula at ullamcorper. Nunc ac turpis sit amet dolor congue gravida.[0m[31m[1m"[0m,
+ public: [36m[1mtrue[0m,
+ created_at: [36m[1mnil[0m,
+ updated_at: [36m[1mnil[0m,
+ author_id: [36m[1mnil[0m[32m>[0m
