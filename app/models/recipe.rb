@@ -6,4 +6,12 @@ class Recipe < ApplicationRecord
   validates :name, :preparation_time, :cooking_time, presence: true
   # validates :name, uniqueness: true
   validates :preparation_time, :cooking_time, numericality: { only_integer: true }
+
+  def self.public_recipes
+    joins(:author, :foods)
+      .select('recipes.id, recipes.name, users.name, COUNT(foods.id), SUM(foods.price)')
+      .where(public: true)
+      .group('recipes.id, author.id')
+      .order('recipes.id')
+  end
 end
