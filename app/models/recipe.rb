@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
 
   def self.public_recipes
     joins(:author, :foods)
-      .select('recipes.id, recipes.name AS recipe_name, users.name AS user_name, users.email AS user_email, COUNT(foods.id) AS total_food_items, SUM(foods.price) AS total_food_price')
+      .select('recipes.id, recipes.name, users.name, COUNT(foods.id), SUM(foods.price)')
       .where(public: true)
       .group('recipes.id, author.id')
       .order('recipes.id')
