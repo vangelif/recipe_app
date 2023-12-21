@@ -1,1 +1,19 @@
+<%# here we display name of recipe and descirption, also a remove button %>
+
 <h1>Recipes</h1>
+<% if @recipes.present? %>
+<% @recipes.each do |r| %>
+
+  <div class="card text-decoration-none <%= r.present? ? 'mb-3' : 'mb-0' %>
+    <div class="card-body">
+        <div class="row">
+
+            <%= render partial: 'recipe', locals: { r: r } %>
+
+        </div>
+    </div>
+<% end %>
+<% else %>
+<h4 class="text-center p-5">no recipes here</h4>
+   </div>
+<% end %>

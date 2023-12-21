@@ -4,6 +4,6 @@ class Recipe < ApplicationRecord
   has_many :ingredients
 
   validates :name, :preparation_time, :cooking_time, presence: true
-  validates :name, uniqueness: true
+  # validates :name, uniqueness: true
   validates :preparation_time, :cooking_time, numericality: { only_integer: true }
 end
