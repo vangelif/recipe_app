@@ -1,20 +1,72 @@
-<%# Assuming `@recipe` is the instance variable for the current recipe %>
+<%# we need to do toggle switch and we need to do the table below %>
 <% if @recipe %>
-  <div class="row">
+  <div class="row px-5">
     <div class="col-md-9">
-      <h2 class="text-align-center"><%= @recipe.name %></h2>
-      <p>Prep Time: <%= @recipe.preparation_time %></p>
-      <p>Cooking Time: <%= @recipe.cooking_time %></p>
-      <p><%= @recipe.description %></p>
+      <h2 class="my-3"><%= @recipe.name %></h2>
+      <p class="my-3">Prep Time: <%= @recipe.preparation_time %></p>
+      <p class="my-3">Cooking Time: <%= @recipe.cooking_time %></p>
+      <p class="my-3 pr-5"><%= @recipe.description %></p>
     </div>
 
     <div class="col-md-3">
       <div class="form-check form-switch mt-3">
-        <input class="form-check-input" type="checkbox" id="toggleSwitch">
+        <input 
+            class="form-check-input" 
+            type="checkbox" 
+            id="toggleSwitch"
+            <%= 'checked' if @recipe.public? %>
+            >
         <label class="form-check-label" for="toggleSwitch">Toggle Switch</label>
       </div>
     </div>
   </div>
+
+ <div class="row px-9">
+        <div class="col-md-6 text-end">
+      <button type="button" class="btn btn-success" id="generateShoppingList">Generate Shopping List</button>
+    </div>
+    <div class="col-md-6">
+      <button type="button" class="btn btn-primary">Add Ingredient</button>
+    </div>
+    
+  </div><br />
+
+  <hr>
+ <%# toggle button JS %>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleSwitch = document.getElementById('toggleSwitch');
+      const recipeContainer = document.querySelector('.row.px-5');
+      const recipeId = <%= @recipe.id %>;
+
+      toggleSwitch.addEventListener('change', function () {
+        // Make an asynchronous request to update the recipe's public attribute
+        const newValue = this.checked;
+
+        fetch(`/recipes/${recipeId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': '<%= form_authenticity_token %>',
+          },
+          body: JSON.stringify({ public: newValue }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+
+            // Hide or show the recipe based on the public attribute
+            if (newValue) {
+              recipeContainer.classList.remove('hidden');
+            } else {
+              recipeContainer.classList.add('hidden');
+            }
+          })
+          .catch(error => console.error('Error:', error));
+      });
+    });
+  </script>
+
 <% else %>
   <h4 class="text-center p-5">Recipe not found</h4>
 <% end %>
