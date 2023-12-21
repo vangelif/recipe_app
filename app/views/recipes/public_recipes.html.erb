@@ -1,6 +1,28 @@
 <%# we need to also place food items and price here %>
 <h1>Public Recipes</h1>
-<% @public_recipes.each do |r| %>
-    <h2><%= r.name %></h2>
-    
+<% @public_recipes.each do |pr| %>
+
+  <div class="card mb-3">
+    <div class="row g-0">
+      <!-- Left side: Recipe details -->
+      <div class="col-md-6">
+      <a href="<%= recipe_path(pr) %>" class="text-decoration-none">
+        <div class="card-body">
+          <h2 class="card-title"><%= pr.name %></h2>
+          <p class="card-text">by <%= pr.author.name %></p>
+        </div>
+      </a>
+      </div>
+
+      <!-- Right side: Total food items and price -->
+      <div class="col-md-6">
+        <div class="card-body">
+            <%# linked with food table %>
+    <p>Total Food Items: ..to be added by Henary</p>
+    <p>Total Food Price: ..to be added by Henary</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% end %>
