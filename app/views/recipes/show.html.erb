@@ -1,2 +1,20 @@
-<h1><%= @recipe.name %></h1>
-<p><%= @recipe.description %></p>
+<%# Assuming `@recipe` is the instance variable for the current recipe %>
+<% if @recipe %>
+  <div class="row">
+    <div class="col-md-9">
+      <h2 class="text-align-center"><%= @recipe.name %></h2>
+      <p>Prep Time: <%= @recipe.preparation_time %></p>
+      <p>Cooking Time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.description %></p>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-check form-switch mt-3">
+        <input class="form-check-input" type="checkbox" id="toggleSwitch">
+        <label class="form-check-label" for="toggleSwitch">Toggle Switch</label>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h4 class="text-center p-5">Recipe not found</h4>
+<% end %>
