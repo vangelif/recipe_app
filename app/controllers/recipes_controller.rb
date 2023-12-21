@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
 
   # root page, /recipes
   def index
-    @recipes = current_user.recipes
+    # added .includes(:author) to avoid N+1 queries
+    @recipes = current_user.recipes.includes(:author)
   end
 
   # ../recipes/1
@@ -42,7 +43,8 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true).order(created_at: :desc)
+    # added .includes(:author) to avoid N+1 queries
+    @public_recipes = Recipe.includes(:author).where(public: true).order(created_at: :desc)
   end
 
   def generate_shopping_list
