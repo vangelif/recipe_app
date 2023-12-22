@@ -38,10 +38,10 @@ class FoodsController < ApplicationController
   def general
     @foods = current_user.foods
     current_user.recipes.map do |recipe|
-      recipe.recipe_foods.includes(:food).map do |recipe_food|
-        food = recipe_food.food
+      recipe.ingredients.includes(:food).map do |ingredient|
+        food = ingredient.food
         test = @foods.select { |f| f.name == food.name }[0]
-        test.quantity = test.quantity - recipe_food.quantity
+        test.quantity = test.quantity - ingredient.quantity
       end
     end
     @foods = @foods.select { |f| f.quantity.negative? }
