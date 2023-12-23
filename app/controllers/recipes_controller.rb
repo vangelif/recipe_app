@@ -41,7 +41,23 @@ class RecipesController < ApplicationController
   def edit; end
 
   # ../recipes/1 (PATCH/PUT)
-  def update; end
+  def update
+    @recipe = Recipe.find(params[:id])
+    puts "Updating recipe with params: #{recipe_params}"
+    if @recipe.author != current_user
+      flash[:alert] = 'You do not have access to edit this recipe.'
+      return redirect_to recipes_path
+    end
+
+    @recipe.update(recipe_params)
+    if @recipe.errors.empty?
+      puts 'Recipe updated successfully.'
+      redirect_to recipes_path(@recipe), notice: 'Recipe was successfully updated.'
+    else
+      puts @recipe.errors.full_messages
+      render :edit
+    end
+  end
 
   # ../recipes/1 (DELETE)
   def destroy

@@ -1,19 +1,21 @@
-<%# here we display name of recipe and descirption, also a remove button %>
+<div class="container">
+  <h1 class="text-center my-5"><strong>My Recipes</strong></h1>
 
-<h1>Recipes</h1>
-<% if @recipes.present? %>
-<% @recipes.each do |r| %>
-
-  <div class="card text-decoration-none <%= r.present? ? 'mb-3' : 'mb-0' %>
-    <div class="card-body">
-        <div class="row">
+  <% if @recipes.present? %>
+    <% @recipes.each do |r| %>
+      <div class="card text-decoration-none <%= r.present? ? 'mb-3' : 'mb-0' %>">
+        <div class="card-body">
+          <div class="row justify-content-center"> <!-- Center-align the content -->
 
             <%= render partial: 'recipe', locals: { r: r } %>
 
+          </div>
         </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="text-center p-5">
+      <h4>no recipes here</h4>
     </div>
-<% end %>
-<% else %>
-<h4 class="text-center p-5">no recipes here</h4>
-   </div>
-<% end %>
+  <% end %>
+</div>
