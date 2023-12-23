@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center my-5">Public Recipes</h1>
+
+  <% @public_recipes.each do |pr| %>
+
+    <div class="card mb-3 mx-auto" style="max-width: 800px;">
+      <div class="row g-0">
+        <!-- Left side: Recipe details -->
+        <div class="col-md-6">
+          <a href="<%= recipe_path(pr) %>" class="text-decoration-none">
+            <div class="card-body">
+              <h2 class="card-title"><%= pr.name %></h2>
+              <p class="card-text">by <%= pr.author.name %></p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Right side: Total food items and price -->
+        <div class="col-md-6">
+          <div class="card-body text-center">
+            <%# Linked with food table %>
+            <p>Total Food Items: <%= pr.foods.count %></p> 
+            <p>Total Food Price: <%= pr.foods.sum(:price) %></p> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>

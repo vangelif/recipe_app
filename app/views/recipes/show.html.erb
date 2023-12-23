@@ -1,0 +1,71 @@
+<% if @recipe %>
+  <div class="row px-5">
+    <!-- Left side: Recipe details -->
+    <div class="col-md-9">
+      <h2 class="my-3"><%= @recipe.name %></h2>
+      <p class="my-3">Prep Time: <%= @recipe.preparation_time %></p>
+      <p class="my-3">Cooking Time: <%= @recipe.cooking_time %></p>
+      <p class="my-3 pr-5"><%= @recipe.description %></p>
+    </div>
+
+    <!-- Right side: Toggle Switch and Update Button -->
+    <div class="col-md-3">
+      <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+        <!-- Toggle Switch -->
+        <div class="form-check form-switch mt-3">
+          <%= f.check_box :public, class: "form-check-input", id: "toggleSwitch" %>
+          <%= f.label :public, class: "form-check-label", for: "toggleSwitch" do %>
+            Toggle Switch
+          <% end %>
+        </div>
+
+        <!-- Update Button -->
+        <%= f.submit "Update Toggle", class: "btn btn-warning mt-3" %>
+      <% end %>
+    </div>
+  </div>
+
+ <div class="row px-9">
+        <div class="col-md-6 text-end">
+        <%= link_to "Generate Shopping List", general_shopping_list_path, class: "btn btn-success" %>
+    </div>
+    <div class="col-md-6">
+     <%= link_to "Add Ingredient", new_recipe_ingredient_path(@recipe), class: "btn btn-success" %>
+    </div>
+    
+  </div><br />
+
+  <hr>
+
+<% else %>
+  <h4 class="text-center p-5">Recipe not found</h4>
+<% end %>
+
+<% if @ingredients.length > 0 %>
+      <table class="w-full table-auto border-collapse">
+        <thead>
+          <tr>
+            <th class="border border-slate-800 py-2">Food</th>
+            <th class="border border-slate-800 py-2">Quantity</th>
+            <th class="border border-slate-800 py-2">Value</th>
+            <th class="border border-slate-800 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ingredients.each do |ingredient| %>
+            <tr class="odd:bg-white even:bg-green-100">
+              <td class="border border-slate-300 py-2"><%= ingredient.food.name %></td>
+              <td class="border border-slate-300 py-2"><%= ingredient.quantity %></td>
+              <td class="border border-slate-300 py-2">$<%= ingredient.quantity * ingredient.food.price %></td>
+              <td class="border border-slate-300 py-2">
+                <% if current_user == ingredient.recipe.author %>
+                  <%= button_to 'Remove', recipe_ingredient_path(@recipe, ingredient), method: :delete, class: "bg-red-300 px-2 py-1 rounded-lg hover:bg-red-500 hover:text-white" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div>Add some new Ingredient.</div>
+    <% end %>
