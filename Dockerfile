@@ -13,6 +13,13 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+# Install Node.js and Yarn
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y nodejs yarn
+
+# Install PostgreSQL development headers
+RUN apt-get install --no-install-recommends -y libpq-dev
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -23,10 +30,10 @@ RUN apt-get update -qq && \
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
+RUN bundle config build.pg --use-system-libraries && \
+    bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
-
 # Copy application code
 COPY . .
 
