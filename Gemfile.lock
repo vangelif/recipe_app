@@ -92,6 +92,7 @@ GEM
     bullet (7.1.4)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -314,6 +315,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.3.2)
   bullet
+  cancancan
   capybara
   database_cleaner
   debug
