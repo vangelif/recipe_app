@@ -20,7 +20,6 @@ RUN apt-get update -qq && \
 # Install PostgreSQL development headers
 RUN apt-get install --no-install-recommends -y libpq-dev
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -34,6 +33,10 @@ RUN bundle config build.pg --use-system-libraries && \
     bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
+
+# Set the PATH to include the bin directory
+ENV PATH="/rails/bin:${PATH}"
+
 # Copy application code
 COPY . .
 
@@ -47,7 +50,6 @@ RUN chmod +x bin/* && \
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
 
 # Final stage for app image
 FROM base
